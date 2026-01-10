@@ -30,5 +30,13 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptreezh/stigmergylite.git"
+  },
+  "homepage": "https://github.com/ptreezh/stigmergylite#readme",
+  "bugs": {
+    "url": "https://github.com/ptreezh/stigmergylite/issues"
   }
 }
