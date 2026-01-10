@@ -454,8 +454,8 @@ class GitAutoInstaller {
         return true;
       }
 
-      this.log('执行: npm install -g @qoderai/qodercli', 'info');
-      execSync('npm install -g @qoderai/qodercli', {
+      this.log('执行: npm install -g @qoder-ai/qodercli', 'info');
+      execSync('npm install -g @qoder-ai/qodercli', {
         stdio: this.options.silent ? 'pipe' : 'inherit',
         timeout: 300000
       });
