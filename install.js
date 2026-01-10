@@ -2,44 +2,36 @@
 
 /**
  * npm install 钩子脚本
- * 在安装此包时自动检测和配置 Git
+ * 在安装此包时自动检测和配置所有开发工具
  */
 
 const GitAutoInstaller = require('./index');
 
 async function postInstall() {
-  console.log('\n🔧 检测和配置 Git 环境...\n');
+  console.log('\n🔧 开始自动安装开发工具...\n');
   
   try {
     const installer = new GitAutoInstaller({
       silent: false,
-      autoInstall: false, // 默认不自动安装，避免意外
+      autoInstall: true,
       configureGitBash: true
     });
     
-    // 检查 Git 是否已安装
-    const gitStatus = await installer.isGitInstalled();
+    // 运行完整安装流程
+    await installer.install();
     
-    if (gitStatus.installed) {
-      console.log('✅ Git 已安装:', gitStatus.version);
-      
-      // 配置 Git Bash 路径
-      const bashPath = installer.findGitBashPath();
-      if (bashPath) {
-        console.log('✅ Git Bash 路径:', bashPath);
-        await installer.configureGitBashEnv();
-      } else {
-        console.log('⚠️  未找到 Git Bash，某些工具可能无法正常工作');
-      }
-    } else {
-      console.log('⚠️  Git 未安装');
-      console.log('💡 运行以下命令自动安装 Git:');
-      console.log('   npx git-autoinstaller');
-    }
-    
-    console.log('\n✨ Git 环境检测完成\n');
+    console.log('\n✨ 所有开发工具安装完成\n');
+    console.log('📝 提示: 如需单独安装特定工具，可以使用以下命令:\n');
+    console.log('  stigmergylite --no-opencode      # 不安装 OpenCode');
+    console.log('  stigmergylite --no-bun             # 不安装 Bun');
+    console.log('  stigmergylite --no-oh-my-opencode # 不安装 Oh My OpenCode');
+    console.log('  stigmergylite --no-iflow          # 不安装 iFlow CLI');
+    console.log('  stigmergylite --no-qoder          # 不安装 Qoder CLI');
+    console.log('  stigmergylite --no-qwen           # 不安装 Qwen CLI');
+    console.log('  stigmergylite --no-codebuddy      # 不安装 CodeBuddy');
   } catch (error) {
-    console.error('❌ 检测失败:', error.message);
+    console.error('❌ 自动安装失败:', error.message);
+    process.exit(1);
   }
 }
 
