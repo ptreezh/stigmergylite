@@ -10,6 +10,7 @@ class GitAutoInstaller {
       silent: options.silent || false,
       autoInstall: options.autoInstall !== false,
       configureGitBash: options.configureGitBash !== false,
+      // 默认安装所有基础工具和 CLI 工具
       installCodeBuddy: options.installCodebuddy !== false,
       installOpenCode: options.installOpenCode !== false,
       installBun: options.installBun !== false,
