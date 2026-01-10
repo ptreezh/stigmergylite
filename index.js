@@ -10,7 +10,7 @@ class GitAutoInstaller {
       silent: options.silent || false,
       autoInstall: options.autoInstall !== false,
       configureGitBash: options.configureGitBash !== false,
-      installCodeBuddy: options.installCodeBuddy || false,
+      installCodeBuddy: options.installCodebuddy !== false,
       installOpenCode: options.installOpenCode !== false,
       installBun: options.installBun !== false,
       installOhMyOpenCode: options.installOhMyOpenCode !== false,
@@ -642,9 +642,27 @@ class GitAutoInstaller {
       }
 
       // 8. 安装 CodeBuddy（如果需要）
-      if (this.options.installCodeBuddy) {
+      if (this.options.installCodebuddy) {
         this.log('\n步骤 5: 安装 CodeBuddy', 'info');
         await this.installCodeBuddy();
+      }
+
+      // 9. 安装 iFlow CLI（如果需要）
+      if (this.options.installIflowCLI) {
+        this.log('\n步骤 6: 安装 iFlow CLI', 'info');
+        await this.installIflowCLI();
+      }
+
+      // 10. 安装 Qoder CLI（如果需要）
+      if (this.options.installQoderCLI) {
+        this.log('\n步骤 7: 安装 Qoder CLI', 'info');
+        await this.installQoderCLI();
+      }
+
+      // 11. 安装 Qwen CLI（如果需要）
+      if (this.options.installQwenCLI) {
+        this.log('\n步骤 8: 安装 Qwen CLI', 'info');
+        await this.installQwenCLI();
       }
 
       this.log('\n' + '='.repeat(50), 'success');
@@ -657,6 +675,10 @@ class GitAutoInstaller {
         gitBashPath: this.findGitBashPath(),
         opencode: this.commandExists('opencode'),
         bun: this.commandExists('bun'),
+        iflow: this.commandExists('iflow'),
+        qodercli: this.commandExists('qodercli'),
+        qwen: this.commandExists('qwen'),
+        codebuddy: this.commandExists('codebuddy'),
         os: osType
       };
     } catch (error) {
