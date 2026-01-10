@@ -1,7 +1,7 @@
 {
   "name": "stigmergylite",
-  "version": "1.0.1",
-  "description": "自动检测、安装和配置开发环境（Git、OpenCode、Bun、Oh My OpenCode）的 npm 包",
+  "version": "1.0.2",
+  "description": "自动检测、安装和配置开发环境（Git、OpenCode、Bun、iFlow CLI、Qoder CLI、Qwen CLI、CodeBuddy）的 npm 包",
   "main": "index.js",
   "bin": {
     "stigmergylite": "./cli.js"
@@ -22,26 +22,12 @@
     "stigmergy",
     "iflowcli",
     "iflow-cli",
+    "iflow-ai",
     "qodercli",
     "qwencli",
-    "qwen-cli"
-    "iflow-ai",
-    "iflow-ai/sdk",
-    "iflow-cli-sdk"
-    "qoder-ai",
-    "qoder-ai",
-    "qodercli",
-    "codebuddy-ai",
-    "jelybahh",
-    "codebuddy",
-    "yashmall"
-    "qwenlm",
-    "qwen-code",
-    "qwen-code-cli"
     "qwen-cli",
-    "qwen-code"
-    "qwenlm",
-    "qwenlm-cli"
+    "qwen-code",
+    "codebuddy-ai"
   ],
   "author": "ptreezh",
   "license": "MIT",

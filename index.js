@@ -384,7 +384,7 @@ class GitAutoInstaller {
 
   /**
    * 安装 CodeBuddy
-    */
+   */
   async installCodeBuddy() {
     this.log('开始安装 CodeBuddy...', 'info');
 
@@ -395,8 +395,8 @@ class GitAutoInstaller {
         return true;
       }
 
-      this.log('执行: npm install -g codebuddy', 'info');
-      execSync('npm install -g codebuddy', {
+      this.log('执行: npm i -g codebuddy-ai', 'info');
+      execSync('npm i -g codebuddy-ai', {
         stdio: this.options.silent ? 'pipe' : 'inherit',
         timeout: 300000
       });
@@ -424,14 +424,14 @@ class GitAutoInstaller {
         return true;
       }
 
-      this.log('执行: npm install -g iflowcli', 'info');
-      execSync('npm install -g iflowcli', {
+      this.log('执行: npm i -g @iflow-ai/iflow-cli', 'info');
+      execSync('npm i -g @iflow-ai/iflow-cli', {
         stdio: this.options.silent ? 'pipe' : 'inherit',
         timeout: 300000
       });
 
       // 验证安装
-      const version = execSync('iflowcli --version', { encoding: 'utf-8' });
+      const version = execSync('iflow --version', { encoding: 'utf-8' });
       this.log(`iFlow CLI 安装成功: ${version.trim()}`, 'success');
       return true;
     } catch (error) {
@@ -470,30 +470,30 @@ class GitAutoInstaller {
   }
 
   /**
-   * 安装 QwenCLI
+   * 安装 Qwen CLI
    */
   async installQwenCLI() {
-    this.log('开始安装 QwenCLI...', 'info');
+    this.log('开始安装 Qwen CLI...', 'info');
 
     try {
-      // 检查 QwenCLI 是否已安装
-      if (this.commandExists('qwencli')) {
-        this.log('QwenCLI 已安装', 'success');
+      // 检查 Qwen CLI 是否已安装
+      if (this.commandExists('qwen')) {
+        this.log('Qwen CLI 已安装', 'success');
         return true;
       }
 
-      this.log('执行: npm install -g @qwen-code/qwen-code', 'info');
-      execSync('npm install -g @qwen-code/qwen-code', {
+      this.log('执行: npm i -g @qwen-code/qwen-code', 'info');
+      execSync('npm i -g @qwen-code/qwen-code', {
         stdio: this.options.silent ? 'pipe' : 'inherit',
         timeout: 300000
       });
 
       // 验证安装
-      const version = execSync('qwencli --version', { encoding: 'utf-8' });
-      this.log(`QwenCLI 安装成功: ${version.trim()}`, 'success');
+      const version = execSync('qwen --version', { encoding: 'utf-8' });
+      this.log(`Qwen CLI 安装成功: ${version.trim()}`, 'success');
       return true;
     } catch (error) {
-      this.log(`QwenCLI 安装失败: ${error.message}`, 'error');
+      this.log(`Qwen CLI 安装失败: ${error.message}`, 'error');
       throw error;
     }
   }

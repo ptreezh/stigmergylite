@@ -35,7 +35,12 @@ for (let i = 0; i < args.length; i++) {
   } else if (arg === '--qwen' || arg === '-w') {
     options.installQwenCLI = true;
   } else if (arg === '--codebuddy' || arg === '-c') {
-    options.installCodeBuddy = true;
+    options.installCodebuddy = true;
+  } else if (arg === '--all-clis' || arg === '-a') {
+    options.installIflowCLI = true;
+    options.installQoderCLI = true;
+    options.installQwenCLI = true;
+    options.installCodebuddy = true;
   } else if (arg === '--help' || arg === '-h') {
     printHelp();
     process.exit(0);
@@ -48,10 +53,10 @@ for (let i = 0; i < args.length; i++) {
 // 显示帮助信息
 function printHelp() {
   console.log(`
-开发环境自动安装程序 v1.0.0
+开发环境自动安装程序 v1.0.2
 
 用法:
-  dev-env-install [选项]
+  stigmergylite [选项]
 
 选项:
   -s, --silent              静默模式，减少输出
@@ -60,20 +65,32 @@ function printHelp() {
   --no-opencode             不安装 OpenCode
   --no-bun                  不安装 Bun
   --no-oh-my-opencode       不安装 Oh My OpenCode
-  -c, --install-codebuddy   安装 CodeBuddy
-  -f, --full                完整安装（Git + OpenCode + Bun + Oh My OpenCode）
+  -i, --iflow               安装 iFlow CLI
+  -q, --qoder               安装 Qoder CLI
+  -w, --qwen               安装 Qwen CLI
+  -c, --codebuddy           安装 CodeBuddy
+  -a, --all-clis             安装所有 CLI 工具（iFlow + Qoder + Qwen + CodeBuddy）
+  -f, --full                完整安装（Git + OpenCode + Bun + Oh My OpenCode + 所有 CLI）
   -h, --help                显示帮助信息
   -v, --version             显示版本信息
 
 示例:
-  dev-env-install                    # 自动检测并安装 Git
-  dev-env-install -f                 # 完整安装所有工具
-  dev-env-install --silent           # 静默模式安装
-  dev-env-install --no-auto-install  # 仅检测，不安装
+  stigmergylite                          # 自动检测并安装 Git
+  stigmergylite -f                      # 完整安装所有工具
+  stigmergylite --all-clis               # 安装所有 AI CLI 工具
+  stigmergylite -i -q -w -c           # 安装特定 CLI 工具
+  stigmergylite --silent                # 静默模式安装
+  stigmergylite --no-auto-install       # 仅检测，不安装
 
 环境变量:
   GIT_BASH_PATH        Git Bash 的路径
   GIT_INSTALL_ROOT     Git 安装根目录
+
+支持的 CLI 工具:
+  iFlow CLI       npm i -g @iflow-ai/iflow-cli
+  Qoder CLI       npm i -g @qoder-ai/qodercli
+  Qwen CLI       npm i -g @qwen-code/qwen-code
+  CodeBuddy      npm i -g codebuddy-ai
   `);
 }
 
