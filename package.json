@@ -25,9 +25,11 @@
     "iflow-ai",
     "qodercli",
     "qwencli",
-    "qwen-cli",
     "qwen-code",
-    "codebuddy-ai"
+    "codebuddy",
+    "tencent",
+    "tencent-ai",
+    "codebuddy-code"
   ],
   "author": "ptreezh",
   "license": "MIT",

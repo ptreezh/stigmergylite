@@ -395,8 +395,8 @@ class GitAutoInstaller {
         return true;
       }
 
-      this.log('执行: npm i -g codebuddy-ai', 'info');
-      execSync('npm i -g codebuddy-ai', {
+      this.log('执行: npm i -g @tencent-ai/codebuddy-code', 'info');
+      execSync('npm i -g @tencent-ai/codebuddy-code', {
         stdio: this.options.silent ? 'pipe' : 'inherit',
         timeout: 300000
       });
