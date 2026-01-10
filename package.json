@@ -19,7 +19,29 @@
     "automation",
     "cross-platform",
     "development-environment",
-    "stigmergy"
+    "stigmergy",
+    "iflowcli",
+    "iflow-cli",
+    "qodercli",
+    "qwencli",
+    "qwen-cli"
+    "iflow-ai",
+    "iflow-ai/sdk",
+    "iflow-cli-sdk"
+    "qoder-ai",
+    "qoder-ai",
+    "qodercli",
+    "codebuddy-ai",
+    "jelybahh",
+    "codebuddy",
+    "yashmall"
+    "qwenlm",
+    "qwen-code",
+    "qwen-code-cli"
+    "qwen-cli",
+    "qwen-code"
+    "qwenlm",
+    "qwenlm-cli"
   ],
   "author": "ptreezh",
   "license": "MIT",

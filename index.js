@@ -14,6 +14,10 @@ class GitAutoInstaller {
       installOpenCode: options.installOpenCode !== false,
       installBun: options.installBun !== false,
       installOhMyOpenCode: options.installOhMyOpenCode !== false,
+      installIflowCLI: options.installIflowCLI !== false,
+      installQoderCLI: options.installQoderCLI !== false,
+      installQwenCLI: options.installQwenCLI !== false,
+      installCodebuddy: options.installCodebuddy !== false,
       ...options
     };
   }
@@ -380,25 +384,116 @@ class GitAutoInstaller {
 
   /**
    * 安装 CodeBuddy
-   */
+    */
   async installCodeBuddy() {
     this.log('开始安装 CodeBuddy...', 'info');
 
     try {
-      // 检查 Git Bash 是否可用
-      const bashPath = this.findGitBashPath();
-      if (!bashPath) {
-        throw new Error('未找到 Git Bash，无法安装 CodeBuddy');
+      // 检查 CodeBuddy 是否已安装
+      if (this.commandExists('codebuddy')) {
+        this.log('CodeBuddy 已安装', 'success');
+        return true;
       }
 
-      // 这里添加 CodeBuddy 的安装逻辑
-      // 由于 CodeBuddy 的具体安装方式可能不同，这里提供一个框架
-      this.log('CodeBuddy 安装逻辑需要根据实际情况实现', 'info');
-      this.log(`Git Bash 路径: ${bashPath}`, 'info');
+      this.log('执行: npm install -g codebuddy', 'info');
+      execSync('npm install -g codebuddy', {
+        stdio: this.options.silent ? 'pipe' : 'inherit',
+        timeout: 300000
+      });
 
+      // 验证安装
+      const version = execSync('codebuddy --version', { encoding: 'utf-8' });
+      this.log(`CodeBuddy 安装成功: ${version.trim()}`, 'success');
       return true;
     } catch (error) {
       this.log(`CodeBuddy 安装失败: ${error.message}`, 'error');
+      throw error;
+    }
+  }
+
+  /**
+   * 安装 iFlow CLI
+   */
+  async installIflowCLI() {
+    this.log('开始安装 iFlow CLI...', 'info');
+
+    try {
+      // 检查 iFlow CLI 是否已安装
+      if (this.commandExists('iflow')) {
+        this.log('iFlow CLI 已安装', 'success');
+        return true;
+      }
+
+      this.log('执行: npm install -g iflowcli', 'info');
+      execSync('npm install -g iflowcli', {
+        stdio: this.options.silent ? 'pipe' : 'inherit',
+        timeout: 300000
+      });
+
+      // 验证安装
+      const version = execSync('iflowcli --version', { encoding: 'utf-8' });
+      this.log(`iFlow CLI 安装成功: ${version.trim()}`, 'success');
+      return true;
+    } catch (error) {
+      this.log(`iFlow CLI 安装失败: ${error.message}`, 'error');
+      throw error;
+    }
+  }
+
+  /**
+   * 安装 QoderCLI
+   */
+  async installQoderCLI() {
+    this.log('开始安装 QoderCLI...', 'info');
+
+    try {
+      // 检查 QoderCLI 是否已安装
+      if (this.commandExists('qodercli')) {
+        this.log('QoderCLI 已安装', 'success');
+        return true;
+      }
+
+      this.log('执行: npm install -g @qoderai/qodercli', 'info');
+      execSync('npm install -g @qoderai/qodercli', {
+        stdio: this.options.silent ? 'pipe' : 'inherit',
+        timeout: 300000
+      });
+
+      // 验证安装
+      const version = execSync('qodercli --version', { encoding: 'utf-8' });
+      this.log(`QoderCLI 安装成功: ${version.trim()}`, 'success');
+      return true;
+    } catch (error) {
+      this.log(`QoderCLI 安装失败: ${error.message}`, 'error');
+      throw error;
+    }
+  }
+
+  /**
+   * 安装 QwenCLI
+   */
+  async installQwenCLI() {
+    this.log('开始安装 QwenCLI...', 'info');
+
+    try {
+      // 检查 QwenCLI 是否已安装
+      if (this.commandExists('qwencli')) {
+        this.log('QwenCLI 已安装', 'success');
+        return true;
+      }
+
+      this.log('执行: npm install -g @qwen-code/qwen-code', 'info');
+      execSync('npm install -g @qwen-code/qwen-code', {
+        stdio: this.options.silent ? 'pipe' : 'inherit',
+        timeout: 300000
+      });
+
+      // 验证安装
+      const version = execSync('qwencli --version', { encoding: 'utf-8' });
+      this.log(`QwenCLI 安装成功: ${version.trim()}`, 'success');
+      return true;
+    } catch (error) {
+      this.log(`QwenCLI 安装失败: ${error.message}`, 'error');
       throw error;
     }
   }

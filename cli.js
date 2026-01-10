@@ -28,6 +28,14 @@ for (let i = 0; i < args.length; i++) {
     options.installOpenCode = true;
     options.installBun = true;
     options.installOhMyOpenCode = true;
+  } else if (arg === '--iflow' || arg === '-i') {
+    options.installIflowCLI = true;
+  } else if (arg === '--qoder' || arg === '-q') {
+    options.installQoderCLI = true;
+  } else if (arg === '--qwen' || arg === '-w') {
+    options.installQwenCLI = true;
+  } else if (arg === '--codebuddy' || arg === '-c') {
+    options.installCodeBuddy = true;
   } else if (arg === '--help' || arg === '-h') {
     printHelp();
     process.exit(0);
