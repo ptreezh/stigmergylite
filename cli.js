@@ -90,7 +90,7 @@ function printHelp() {
   iFlow CLI       npm i -g @iflow-ai/iflow-cli
   Qoder CLI       npm i -g @qoder-ai/qodercli
   Qwen CLI       npm i -g @qwen-code/qwen-code
-  CodeBuddy      npm i -g codebuddy-ai
+  CodeBuddy      npm i -g @tencent-ai/codebuddy-code
   `);
 }
 
