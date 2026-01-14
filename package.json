@@ -1,6 +1,6 @@
 {
   "name": "stigmergylite",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "自动检测、安装和配置开发环境（Git、OpenCode、Bun、iFlow CLI、Qoder CLI、Qwen CLI、CodeBuddy）的 npm 包",
   "main": "index.js",
   "bin": {
@@ -34,9 +34,10 @@
   "author": "ptreezh",
   "license": "MIT",
   "dependencies": {
-    "which": "^4.0.0",
     "cross-spawn": "^7.0.3",
-    "execa": "^8.0.1"
+    "execa": "^8.0.1",
+    "stigmergylite": "^1.1.0",
+    "which": "^4.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
