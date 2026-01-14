@@ -31,7 +31,11 @@
     "tencent-ai",
     "codebuddy-code"
   ],
-  "author": "ptreezh",
+  "author": {
+    "name": "ptreezh",
+    "email": "zhangshuren@hznu.edu.cn"
+  },
+  "homepage": "http://www.socienceAI.com",
   "license": "MIT",
   "dependencies": {
     "cross-spawn": "^7.0.3",
